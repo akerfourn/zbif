@@ -1,0 +1,25 @@
+Aide zbif
+
+** Options :
+
+	-in FORIG, -i FORIG 
+			Définit le fichier d'origine contenant les données à optimiser.
+
+	-out FOPT, -o FOPT
+			Définit le fichier de sortie (optimisé).
+
+	--buffersize BUFSIZE, -bs BUFSIZE
+			Taille du buffer utilisée pour supprimer la redondance (30 par défaut).
+
+	--skipdata NSKIP, -sd NSKIP
+			Pour une ligne de traitée NSKIP lignes sont ignorées.
+
+	--sigfigs SIGFIGS -sf SIGFIGS
+			Définit le nombre de chiffres significatifs (=SIGFIGS+1) utilisés pour l'affichage. Un nombre négatif signifie que la valeur n'est pas tronquée (-1 par défaut).
+
+** Exemple d'utilisation :
+
+	zbif -i fullbif.dat -o optbif.dat -sd 2 -sf 2
+
+		Recopie le fichier fullbif.dat dans optbif.dat en ne conservant qu'une ligne sur 3 (-sd 2), en écrivrant les résultats avec 3 chiffres significatifs (-sf 2) et en suprimant les redondances inutiles (avec un buffer de 30 éléments, les redondances peuvent être supprimer jusqu'à des orbites périodiques de prériode 30).
+		
