@@ -56,7 +56,7 @@ class zbif:
 	def zip(self):
 		cnt = 0
 		for line in self.fin:
-			if cnt == 0:
+			if cnt <= 0:
 				lw = ""
 				col = line.strip().split()
 				i = 0
@@ -73,7 +73,7 @@ class zbif:
 							self.bufindex = (self.bufindex + 1) % self.bufsize
 				else:
 					raise zbifError("nocol")
-				cnt = self.skip
+				cnt = cnt + self.skip
 			else:
 				cnt = cnt - 1
 
