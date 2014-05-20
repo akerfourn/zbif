@@ -75,7 +75,7 @@ class zbif:
 					raise zbifError("nocol")
 				cnt = cnt + self.skip
 			else:
-				cnt = cnt - 1
+				cnt = cnt - 1.0
 
 #--- Function ---
 
@@ -134,7 +134,7 @@ if __name__=="__main__" :
 	parser.add_argument('-in','-i', action="store", dest="inputfile", help="Nom du fichier d'entrée.", default=None)
 	parser.add_argument('-out','-o', action="store", dest="outputfile", help="Nom du fichier de sortie.", default=None)
 	parser.add_argument('--buffersize','-bs', action="store", dest="bufsize", help="Taille du buffer utilisé pour l'optimisation des données (30 par défaut).", default=30,type=int)
-	parser.add_argument('--skipdata','-sd', action="store", dest="Nskip", help="Pour 1 ligne de traitée, les Nskip lignes suivantes sont ignorées (0 par défaut).", default=0,type=int)
+	parser.add_argument('--skipdata','-sd', action="store", dest="Nskip", help="Pour 1 ligne de traitée, les Nskip lignes suivantes sont ignorées (0 par défaut).", default=0,type=float)
 	parser.add_argument('--sigfigs','-sf', action="store", dest="sigfigs", help="Impose le nombre de chiffres significatifs (=SIGFIGS+1) maximum pour l'affichage (-1 par défaut).\n Note : plus le nombre de chiffres significatifs est faible plus le programme pourra optimiser les données, il faut donc trouver un compromis entre la taille du fichier de sortie et la précision d'affichage souhaitée.\n Note 2 : Une valeur négative indique que le programme ne tronquera pas les données.", default=-1,type=int)
 	parser.add_argument('-io', action="store",dest="iofile",help="Allows to have the same file in input and output.",default=None)
 
@@ -157,7 +157,7 @@ if __name__=="__main__" :
 		print "Error : the file "+args["outputfile"]+" can't be open or created."
 
 	sigfig = int(args["sigfigs"])			# nombre de chiffres significatifs
-	skip = int(args["Nskip"])
+	skip = float(args["Nskip"])
 	bufsize = int(args["bufsize"])			#buffer size
 
 	try:
